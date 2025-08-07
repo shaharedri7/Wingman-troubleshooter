@@ -238,17 +238,32 @@
           retryBtn.style.backgroundColor = "#ffa500";
           retryBtn.style.marginTop = "10px";
           retryBtn.onclick = () => {
-            hideQuestion(currentId);
-            showQuestion(currentId);
-            const qDiv = document.getElementById(currentId);
-            const allBtns = qDiv.querySelectorAll("button");
-            allBtns.forEach(btn => {
-              btn.disabled = false;
-              btn.style.opacity = "1";
-              btn.style.cursor = "pointer";
-            });
-            retryBtn.remove();
-          };
+  hideQuestion(currentId);
+  showQuestion(currentId);
+
+  const qDiv = document.getElementById(currentId);
+  const allBtns = qDiv.querySelectorAll("button");
+  allBtns.forEach(btn => {
+    btn.disabled = false;
+    btn.style.opacity = "1";
+    btn.style.cursor = "pointer";
+  });
+
+  // Remove the suggestion item for this question
+  const allSuggestions = suggestionList.querySelectorAll(".suggestion-item");
+  allSuggestions.forEach((item) => {
+    if (item.textContent === answer.suggestion) {
+      item.remove();
+    }
+  });
+
+  // Hide suggestion panel if it's now empty
+  if (suggestionList.children.length === 0) {
+    suggestionPanel.classList.add("hidden");
+  }
+
+  retryBtn.remove();
+};
           currentQuestionDiv.appendChild(retryBtn);
         }
 
