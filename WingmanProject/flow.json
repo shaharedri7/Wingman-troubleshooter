@@ -1,0 +1,359 @@
+[
+  {
+    "id": "q1",
+    "text": "Is the device powered on?",
+    "answers": [
+      {
+        "text": "Yes",
+        "next": "q2"
+      },
+      {
+        "text": "No",
+        "suggestion": "Check power cable, power supply, or power button.",
+        "next": "q2"
+      },
+      {
+        "text": "N/A",
+        "next": "q2"
+      }
+    ]
+  },
+  {
+    "id": "q2",
+    "text": "Is there visible damage to the cable or connectors?",
+    "answers": [
+      {
+        "text": "Yes",
+        "suggestion": "Replace the damaged cable or connector. Physical damage can lead to signal loss, intermittent connectivity, or complete failure. Replace the component and retest the link.",
+        "stop": true
+      },
+      {
+        "text": "No",
+        "next": "q3"
+      },
+      {
+        "text": "N/A",
+        "next": "q3"
+      }
+    ]
+  },
+  {
+    "id": "q3",
+    "text": "Is light received on both ends?",
+    "answers": [
+      {
+        "text": "Yes",
+        "next": "q4"
+      },
+      {
+        "text": "No",
+        "suggestion": "Use a fiber tester, visual fault locator, or infrared card to confirm light transmission at both ends. Clean connectors if needed and recheck.",
+        "next": "q4"
+      },
+      {
+        "text": "N/A",
+        "next": "q4"
+      }
+    ],
+    "image": "images/q3-infrared-card.png"
+  },
+  {
+    "id": "q4",
+    "text": "Is there link light on both the end-device and the switch port?",
+    "answers": [
+      {
+        "text": "Yes",
+        "next": "q5"
+      },
+      {
+        "text": "No",
+        "suggestion": "Check GBIC seating, patch cable connection, try cleaning fiber interfaces, or try replacing the GBIC/SFP.",
+        "next": "q5"
+      },
+      {
+        "text": "N/A",
+        "next": "q5"
+      }
+    ],
+    "image": "images/q4-link-light.png"
+  },
+  {
+    "id": "q5",
+    "text": "Is the GBIC/SFP seated properly on both sides?",
+    "answers": [
+      {
+        "text": "Yes",
+        "next": "q6"
+      },
+      {
+        "text": "No",
+        "suggestion": "Reseat the GBIC/SFP on both the switch and the end-device. Wait a few seconds and check link status again.",
+        "next": "q6"
+      },
+      {
+        "text": "N/A",
+        "next": "q6"
+      }
+    ],
+    "image": "images/q5-sfp-inserted.png"
+  },
+  {
+    "id": "q6",
+    "text": "Is the patch cable properly connected at both ends? (Verify click)",
+    "answers": [
+      {
+        "text": "Yes",
+        "next": "q7"
+      },
+      {
+        "text": "No",
+        "suggestion": "Reconnect the patch cable securely on both ends and check link status.",
+        "next": "q7"
+      },
+      {
+        "text": "N/A",
+        "next": "q7"
+      }
+    ],
+    "image": "images/q6-fiber-connection.png"
+  },
+  {
+    "id": "q7",
+    "text": "Is the fiber correctly patched through the patch panel hops?",
+    "answers": [
+      {
+        "text": "Yes",
+        "next": "q8"
+      },
+      {
+        "text": "No",
+        "suggestion": "Verify patch panel labeling and ensure the fiber path is correctly routed end-to-end. Correct any mispatching and retest the link. (relabel if needed!)",
+        "next": "q8"
+      },
+      {
+        "text": "N/A",
+        "next": "q8"
+      }
+    ]
+  },
+  {
+    "id": "q8",
+    "text": "Are you using the correct type of GBIC/SFP for this port and cable?",
+    "answers": [
+      {
+        "text": "Yes",
+        "next": "q9"
+      },
+      {
+        "text": "No",
+        "suggestion": "Verify GBIC/SFP compatibility with the switch and the type of fiber or copper cable. Replace with a supported module if needed.",
+        "next": "q9"
+      },
+      {
+        "text": "N/A",
+        "next": "q9"
+      }
+    ]
+  },
+  {
+    "id": "q9",
+    "text": "Did you clean the fiber patch cable connectors?",
+    "answers": [
+      {
+        "text": "Yes",
+        "next": "q10"
+      },
+      {
+        "text": "No",
+        "suggestion": "Clean the fiber patch cable connectors using a fiber cleaning tool and retest link status.",
+        "next": "q10"
+      },
+      {
+        "text": "N/A",
+        "next": "q10"
+      }
+    ],
+    "image": "images/q9-fiber-cleaning.png"
+  },
+  {
+    "id": "q10",
+    "text": "Did you clean the patch panel port?",
+    "answers": [
+      {
+        "text": "Yes",
+        "next": "q11"
+      },
+      {
+        "text": "No",
+        "suggestion": "Clean the patch panel fiber port using a LC cleaning tool and retest the link.",
+        "next": "q11"
+      },
+      {
+        "text": "N/A",
+        "next": "q11"
+      }
+    ],
+    "image": "images/q10-patch-panel-cleaning.png"
+  },
+  {
+    "id": "q11",
+    "text": "Did you clean the GBIC/SFP module?",
+    "answers": [
+      {
+        "text": "Yes",
+        "next": "q12"
+      },
+      {
+        "text": "No",
+        "suggestion": "Clean the GBIC/SFP module with a MPO/LC cleaner, then retest connectivity.",
+        "next": "q12"
+      },
+      {
+        "text": "N/A",
+        "next": "q12"
+      }
+    ],
+    "image": "images/q11-sfp-cleaning.png"
+  },
+  {
+    "id": "q12",
+    "text": "Did you perform a loopback test towards <span style=\"font-weight:bold; color:orange;\">up</span>?",
+    "answers": [
+      {
+        "text": "Yes",
+        "next": "q13"
+      },
+      {
+        "text": "No",
+        "suggestion": "Insert a loopback plug at the end-device side and check if signal is received back. Use diagnostics or link lights to verify. If passed, route is probably clear.",
+        "next": "q13"
+      },
+      {
+        "text": "N/A",
+        "next": "q13"
+      }
+    ],
+    "images": [
+  "images/q13-12-loopback.png",
+  "images/q12-13-loopback.png"
+ ]
+  },
+  {
+    "id": "q13",
+    "text": "Did you perform a loopback test towards <span style=\"font-weight:bold; color:orange;\">down</span>?",
+    "answers": [
+      {
+        "text": "Yes",
+        "next": "q14"
+      },
+      {
+        "text": "No",
+        "suggestion": "Perform a loopback test on the switch-side port using a loopback adapter. If the link comes up, it confirms the port is operational and connectivity downstream is likely clear.",
+        "next": "q14"
+      },
+      {
+        "text": "N/A",
+        "next": "q14"
+      }
+    ],
+    "images": [
+  "images/q13-12-loopback.png",
+  "images/q12-13-loopback.png"
+ ]
+  },
+  {
+    "id": "q14",
+    "text": "Did you replace the GBIC/SFP module?",
+    "answers": [
+      {
+        "text": "Yes",
+        "next": "q15"
+      },
+      {
+        "text": "No",
+        "suggestion": "Replace the GBIC/SFP module with a known-good, compatible one. Even seated modules can fail due to wear, manufacturing faults, or static damage.",
+        "next": "q15"
+      },
+      {
+        "text": "N/A",
+        "next": "q15"
+      }
+    ]
+  },
+  {
+    "id": "q15",
+    "text": "Did you try replacing the patch cable (fiber or copper/DAC)?",
+    "answers": [
+      {
+        "text": "Yes",
+        "next": "q16"
+      },
+      {
+        "text": "No",
+        "suggestion": "Replace the patch cable with a known-good one of the same type and check link status. If the issue persists, check with Network Engineering to verify whether the port is operational or administratively shut.",
+        "next": "q16"
+      },
+      {
+        "text": "N/A",
+        "next": "q16"
+      }
+    ]
+  },
+  {
+    "id": "q16",
+    "text": "Did you try a different patch panel port?",
+    "answers": [
+      {
+        "text": "Yes",
+        "next": "q17"
+      },
+      {
+        "text": "No",
+        "suggestion": "Try connecting to a different patch panel port if available, to rule out a damaged or dirty port. Before doing so, check with an ID team member to confirm port availability, ensure proper patching, and relabel if needed.",
+        "next": "q17"
+      },
+      {
+        "text": "N/A",
+        "next": "q17"
+      }
+    ]
+  },
+  {
+    "id": "q17",
+    "text": "Did you try a different switch port?",
+    "answers": [
+      {
+        "text": "Yes",
+        "next": "q18"
+      },
+      {
+        "text": "No",
+        "suggestion": "Try connecting the cable to a different available switch port to rule out a faulty interface. If you're unsure or the port is restricted, reach out to Network Engineering for approval before proceeding.",
+        "next": "q18"
+      },
+      {
+        "text": "N/A",
+        "next": "q18"
+      }
+    ]
+  },
+  {
+    "id": "q18",
+    "text": "Is the switch port shut (operational/admin down)? Poll device first",
+    "answers": [
+      {
+        "text": "Yes",
+        "suggestion": "Verify on NSM if the port is shut (operational/admin down) and if so, escalate to Network Engineering for further validation.",
+        "stop": true
+      },
+      {
+        "text": "No",
+        "stop": true
+      },
+      {
+        "text": "N/A",
+        "stop": true
+      }
+    ]
+  }
+]
