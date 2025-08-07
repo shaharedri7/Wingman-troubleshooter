@@ -250,7 +250,7 @@
     btn.style.cursor = "pointer";
   });
 
-  // Remove the suggestion item for this question
+  // Remove suggestion item
   const allSuggestions = suggestionList.querySelectorAll(".suggestion-item");
   allSuggestions.forEach((item) => {
     if (item.textContent === answer.suggestion) {
@@ -258,10 +258,13 @@
     }
   });
 
-  // Hide suggestion panel if it's now empty
+  // Hide panel if empty
   if (suggestionList.children.length === 0) {
     suggestionPanel.classList.add("hidden");
   }
+
+  // 🔥 ALLOW SUGGESTION TO SHOW AGAIN
+  shownSuggestions.delete(currentId);
 
   retryBtn.remove();
 };
